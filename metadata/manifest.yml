@@ -1,0 +1,53 @@
+---
+Name: spring-boot
+Cartridge-Short-Name: SPRINGBOOT
+Cartridge-Vendor: Bogdan MATA
+Cartridge-Version: 0.0.1
+Display-Name: Spring Boot Application
+Description: Cartridge for deploying a Spring Boot Application on OpenShift
+Version: '1.0.0-SNAPSHOT'
+Versions:
+- '1.0.0-SNAPSHOT'
+License: GPLv3
+License-Url: http://www.gnu.org/licenses/gpl-3.0.html
+Vendor: Bogdan MATA
+Categories:
+- service
+- java
+- web_framework
+Website: https://github.com/bogdanmata/openshift-origin-cartridge-spring-boot
+Help-Topics:
+  Developer Center: https://github.com/bogdanmata/openshift-origin-cartridge-spring-boot
+Provides:
+- spring boot 1.4.1-RELEASE
+Publishes:
+  get-internal-uri:
+    Type: NET_TCP:http
+Subscribes:
+  set-env:
+    Type: ENV:*
+    Required: false
+  set-jdbc-info:
+    Type: NET_TCP:jdbc
+Endpoints:
+- Private-IP-Name: IP
+  Private-Port-Name: HTTP_PORT
+  Private-Port: 8080
+  Public-Port-Name: HTTP_PROXY_PORT
+  Protocols:
+  - http
+  - ws
+  Options:
+    primary: true
+  Mappings:
+  - Frontend: ''
+    Backend: ''
+    Options:
+      websocket: 1
+  - Frontend: "/health"
+    Backend: ''
+    Options:
+      health: true
+- Private-IP-Name: IP
+  Private-Port-Name: JPDA_PORT
+  Private-Port: 8787
