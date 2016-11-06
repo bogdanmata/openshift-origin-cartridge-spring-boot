@@ -1,0 +1,5 @@
+= OpenShift Origin Cartridge For Spring Boot Guide
+
+[[spring-boot]]
+== Spring Boot Application
+This cartridge provides the https://projects.spring.io/spring-boot/[Spring Boot] on OpenShift.
